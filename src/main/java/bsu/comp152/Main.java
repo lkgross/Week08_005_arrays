@@ -1,8 +1,15 @@
 package bsu.comp152;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+
+        File myfile = new File("namesSection005");
+        Scanner inputFile = new Scanner(myfile);
         /*
          * Inline initialization of an array with prescribed elements.
          */
@@ -10,7 +17,7 @@ public class Main {
         /*
          * We can declare and define an array with default values.
          */
-        String[] names = new String[1000];
+        String[] names = new String[100];
 
         System.out.println(SUITS);
         System.out.println(names);
@@ -64,5 +71,41 @@ public class Main {
         for (int i = 0; i < intArray.length; i++){
             System.out.println(intArray[i]);
         }
+
+        for (String name : names){
+            System.out.println(name);
+        }
+
+        // Read names from an input file.
+        /*
+         * While there are names remaining in the input file, add the name to the names array.
+         * While the file has a next name, add the name to the names array.
+         */
+        int i = 0;
+        while (inputFile.hasNext()){
+            names[i] = inputFile.nextLine();
+            i++;
+        }
+
+        System.out.println();
+        int classSize = i;
+        System.out.println();
+
+        for (String name : names){
+            if (name != null) {
+                System.out.println(name);
+            }
+        }
+
+        System.out.println();
+        System.out.printf("The class size is %d\n", classSize);
+        System.out.println();
+
+        for (int j = 0; j < classSize; j++){
+            System.out.println(names[j]);
+        }
+
+
+
     }
 }
