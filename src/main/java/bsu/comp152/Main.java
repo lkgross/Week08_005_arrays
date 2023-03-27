@@ -105,6 +105,15 @@ public class Main {
             System.out.println(names[j]);
         }
 
+        int chosenIndex = 100;
+        try {
+            // Block of code to try
+            System.out.printf("Here is a question for %s\n", names[chosenIndex]);
+        }
+        catch(ArrayIndexOutOfBoundsException e) {
+            // Block of code to handle errors
+            System.out.println("The chosen index is out of bounds");
+        }
 
 
     }
